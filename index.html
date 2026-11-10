@@ -30,6 +30,8 @@ input[type=text],input[type=number],select{padding:10px;border:1px solid var(--l
 footer{padding:20px;text-align:center;color:var(--muted);font-size:12px}
 .hidden{display:none!important}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}
 @media(max-width:800px){.layout{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line)}nav{display:flex;overflow:auto}nav button{white-space:nowrap;width:auto}.grid{grid-template-columns:1fr}main{padding:16px}header{padding:13px 16px}}
+
+.manual-content{font-size:16px;line-height:1.72;color:#24364a;margin:18px 0 24px}.manual-content h1,.manual-content h2,.manual-content h3,.manual-content h4{color:#10243a;margin:24px 0 10px}.manual-content h2{font-size:21px;border-bottom:1px solid var(--line);padding-bottom:7px}.manual-content h3{font-size:18px}.manual-content p{margin:10px 0;color:#34465a}.manual-content ul,.manual-content ol{padding-left:26px;margin:10px 0 16px}.manual-content li{margin:6px 0}.manual-content strong{color:#10243a}.manual-content code{background:#edf2f7;padding:2px 5px;border-radius:4px}.table-wrap{overflow-x:auto;margin:16px 0}.manual-table{min-width:620px;font-size:14px}.manual-table td,.manual-table th{vertical-align:top;line-height:1.5}.manual-content blockquote{border-left:4px solid var(--orange);padding:8px 14px;background:#fff7ed}
 </style></head>
 <body>
 <header><div class="brand">WAREHOUSE LMS <small>Centro de aprendizaje · Recepción de mercancías</small></div><div class="row"><span id="roleLabel">Perfil: Aprendiz</span><button class="secondary" onclick="toggleRole()">Cambiar perfil</button></div></header>
@@ -89,7 +91,39 @@ function unitDone(i){return lessons[i].topics.every((t,j)=>state.done.includes(i
 function quizPassed(type){return state.results.some(r=>r.type===type)}
 function renderAssessmentStages(){let labels=[["q1","Quiz de aplicación · Unidad 1","Preparación del proceso de recibo"],["q2","Quiz de aplicación · Unidad 2","Documentación y verificación"],["q3","Quiz de aplicación · Unidad 3","Conteo, pesaje y novedades"],["final","Examen final integrador","Aplicación integral de las tres unidades"]];document.getElementById('assessmentStages').innerHTML=labels.map(([type,title,desc],i)=>{let ready=i===0?unitDone(0):i===1?unitDone(1)&&quizPassed('q1'):i===2?unitDone(2)&&quizPassed('q2'):lessons.every((l,k)=>unitDone(k))&&quizPassed('q1')&&quizPassed('q2')&&quizPassed('q3');let done=quizPassed(type);return `<div class="lesson"><div><b>${i+1}. ${title}</b><div class="muted">${desc}</div><span class="pill">${done?'Presentado':ready?'Disponible':'Bloqueado · completa la etapa anterior'}</span></div><button ${ready?'':'disabled'} class="${i===3?'orange':'secondary'}" onclick="startExam('${type}')">${done?'Reintentar':ready?'Comenzar':'Aún no disponible'}</button></div>`}).join('')}
 function renderLessons(){document.getElementById('lessons').innerHTML=lessons.map((l,i)=>`<div class="card"><div class="unit"><div class="num">0${i+1}</div><div style="flex:1"><h2>${l.title}</h2><p>${l.topics.length} temas · Lecciones explicativas y puntos de control</p><div class="lesson-list">${l.topics.map((t,j)=>`<div class="lesson"><span>${j+1}. ${t.split(':')[0]}</span><button class="secondary" onclick="openLesson(${i},${j})">${state.done.includes(i+'-'+j)?'Repasar ✓':'Estudiar'}</button></div>`).join('')}</div></div></div></div>`).join('')}
-function openLesson(i,j){let l=lessons[i],t=l.topics[j];let box=document.getElementById('lessonDetail');box.classList.remove('hidden');box.innerHTML=`<div class="eyebrow">Unidad ${i+1} · Lección ${j+1}</div><h2>${t.split(':')[0]}</h2><p>${t.substring(t.indexOf(':')+1)}</p><div class="callout"><b>En la operación:</b> aplica el procedimiento, deja evidencia y escala cualquier condición insegura o diferencia antes de cerrar el recibo.</div><button onclick="markDone(${i},${j})">Marcar como completada</button>`;box.scrollIntoView({behavior:'smooth'})}
+const manualFiles=['CONTENIDO_ACADEMICO_UNIDAD_1.md','CONTENIDO_ACADEMICO_UNIDAD_2.md','CONTENIDO_ACADEMICO_UNIDAD_3.md'];
+const manualCache={};
+function escHtml(v){return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+function inlineMd(v){return escHtml(v).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>')}
+function markdownToHtml(md){
+ const lines=md.replace(/\r/g,'').split('\n');let out='',para=[],list=null;
+ const flush=()=>{if(para.length){out+='<p>'+para.map(inlineMd).join('<br>')+'</p>';para=[]}};
+ const closeList=()=>{if(list){out+=list==='ul'?'</ul>':'</ol>';list=null}};
+ for(let i=0;i<lines.length;i++){
+  const line=lines[i];
+  if(/^\|.*\|$/.test(line)&&i+1<lines.length&&/^\|?[\s:|-]+\|$/.test(lines[i+1])){
+   flush();closeList();let headers=line.split('|').slice(1,-1).map(x=>x.trim());i++;out+='<div class="table-wrap"><table class="manual-table"><thead><tr>'+headers.map(x=>'<th>'+inlineMd(x)+'</th>').join('')+'</tr></thead><tbody>';
+   while(i+1<lines.length&&/^\|.*\|$/.test(lines[i+1])){i++;let cells=lines[i].split('|').slice(1,-1).map(x=>x.trim());out+='<tr>'+headers.map((_,k)=>'<td>'+inlineMd(cells[k]||'')+'</td>').join('')+'</tr>'}out+='</tbody></table></div>';continue;
+  }
+  let h=line.match(/^(#{1,4})\s+(.*)$/);if(h){flush();closeList();let n=h[1].length;out+=`<h${n}>${inlineMd(h[2])}</h${n}>`;continue}
+  if(/^\s*[-*]\s+/.test(line)){flush();if(list!=='ul'){closeList();out+='<ul>';list='ul'}out+='<li>'+inlineMd(line.replace(/^\s*[-*]\s+/,''))+'</li>';continue}
+  if(/^\s*\d+\.\s+/.test(line)){flush();if(list!=='ol'){closeList();out+='<ol>';list='ol'}out+='<li>'+inlineMd(line.replace(/^\s*\d+\.\s+/,''))+'</li>';continue}
+  if(!line.trim()){flush();closeList();continue}
+  closeList();para.push(line);
+ }
+ flush();closeList();return out;
+}
+async function openLesson(i,j){
+ let l=lessons[i],t=l.topics[j],num=i*5+j+1,box=document.getElementById('lessonDetail');
+ box.classList.remove('hidden');box.innerHTML=`<div class="eyebrow">Unidad ${i+1} · Lección ${num} de 15</div><h2>${escHtml(t.split(':')[0])}</h2><p class="muted">Cargando manual técnico completo…</p>`;box.scrollIntoView({behavior:'smooth'});
+ try{
+  if(!manualCache[i]){const r=await fetch(manualFiles[i]);if(!r.ok)throw new Error('No se pudo leer el manual ('+r.status+').');manualCache[i]=await r.text()}
+  const md=manualCache[i],re=/^#{1,2}\s+Lección\s+(\d+)\.[^\n]*$/gm;let matches=[...md.matchAll(re)],at=matches.findIndex(m=>Number(m[1])===num);
+  if(at<0)throw new Error('No se encontró el desarrollo de esta lección en el manual.');
+  const start=matches[at].index,end=at+1<matches.length?matches[at+1].index:md.length,section=md.slice(start,end).trim();
+  box.innerHTML=`<div class="eyebrow">Manual técnico · Unidad ${i+1} · Lección ${num}</div><h2>${escHtml(t.split(':')[0])}</h2><div class="manual-content">${markdownToHtml(section)}</div><div class="callout"><b>Aplicación:</b> relaciona los conceptos con el procedimiento real de recepción, conserva evidencias y escala las condiciones que excedan tu autorización.</div><div class="row"><button onclick="markDone(${i},${j})">Marcar como completada</button><button class="secondary" onclick="document.getElementById('lessons').scrollIntoView({behavior:'smooth'})">Volver al temario</button></div>`;
+ }catch(err){box.innerHTML=`<div class="eyebrow">Unidad ${i+1} · Lección ${num}</div><h2>${escHtml(t.split(':')[0])}</h2><div class="callout">No se pudo cargar el manual técnico: ${escHtml(err.message)}. Comprueba que los tres archivos CONTENIDO_ACADEMICO_UNIDAD_*.md estén en la raíz del repositorio.</div>`}
+}
 function markDone(i,j){let k=i+'-'+j;if(!state.done.includes(k))state.done.push(k);save();renderLessons();renderAssessmentStages();alert('Lección registrada como completada.')}
 function runPractice(n){let data=[{q:'Al llegar el camión observas un precinto roto. ¿Qué haces?',o:['Abrir para ahorrar tiempo','No abrir; registrar evidencia y avisar al responsable','Cambiar el sello sin reportar'],a:1,why:'La integridad del sello es una condición de seguridad y trazabilidad.'},{q:'La orden solicita 24 unidades y la remisión indica 24, pero físicamente cuentas 22. ¿Qué registras?',o:['Recibo completo','Faltante de 2 unidades','Sobrante de 2 unidades'],a:1,why:'La comparación debe considerar documentos y conteo físico.'},{q:'Encuentras 3 cajas golpeadas. ¿Qué acción es correcta?',o:['Separarlas, fotografiar y reportar avería','Mezclarlas con las conformes','Ajustar el inventario sin informar'],a:0,why:'La novedad debe quedar identificada y soportada.'}][n];let area=document.getElementById('practiceArea');area.classList.remove('hidden');area.innerHTML=`<h2>Situación operativa</h2><p>${data.q}</p>${data.o.map((o,i)=>`<label class="option"><input type="radio" name="prac" value="${i}"> ${o}</label>`).join('')}<button onclick="checkPractice(${n})">Comprobar decisión</button><div id="pracFeedback"></div>`}
 function checkPractice(n){let data=[{a:1,why:'La integridad del sello es una condición de seguridad y trazabilidad.'},{a:1,why:'La comparación debe considerar documentos y conteo físico.'},{a:0,why:'La novedad debe quedar identificada y soportada.'}][n],v=document.querySelector('input[name=prac]:checked');document.getElementById('pracFeedback').innerHTML=v?`<div class="callout">${+v.value===data.a?'¡Correcto!':'Revisa el procedimiento.'} ${data.why}</div>`:'Selecciona una respuesta.'}
