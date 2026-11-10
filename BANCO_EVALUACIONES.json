@@ -1,0 +1,842 @@
+{
+  "metadata": {
+    "nombre": "Banco de evaluación WAREHOUSE LMS",
+    "version": "1.0",
+    "escala": "0.0 a 5.0",
+    "regla": "15 preguntas por quiz de unidad y 30 preguntas para examen final; 4 opciones plausibles por pregunta; una mejor respuesta; retroalimentación técnica.",
+    "envio_google_sheets": "Solo al completar el examen final integrador."
+  },
+  "q1": [
+    {
+      "caso": "Un centro recibe 14 pallets a las 08:00. El muelle sigue ocupado y la zona temporal solo admite 8 pallets. El proveedor exige descargar para continuar su ruta. ¿Qué debe resolver el coordinador antes de autorizar?",
+      "opciones": [
+        "Descargar los primeros ocho y dejar el resto en el pasillo.",
+        "Confirmar capacidad, equipo, circulación y zona alterna autorizada; secuenciar sin saturar el área.",
+        "Usar el muelle libre aunque no sea compatible con el vehículo.",
+        "Esperar con el vehículo dentro del muelle ocupado."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La capacidad real incluye muelle, equipo, rutas y staging. No se improvisan zonas ni se bloquean circulaciones."
+    },
+    {
+      "caso": "La OC pide 30 cajas A, 20 B y 10 C. Llegan 32 A, 18 B y 10 C: el total coincide. ¿Cómo registrar?",
+      "opciones": [
+        "Conforme por coincidencia del total.",
+        "Diferencia neta cero.",
+        "Sobrante A y faltante B por separado, con decisión autorizada.",
+        "Ajustar el conteo a la remisión."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "La conformidad se determina por referencia, no por suma global."
+    },
+    {
+      "caso": "Un pallet está inclinado y varias cajas sobresalen. El supervisor exige moverlo para liberar el muelle. ¿Qué hacer?",
+      "opciones": [
+        "Pedir a auxiliares que sujeten las cajas.",
+        "Mover lentamente y con horquillas bajas.",
+        "Detener, aislar la zona y definir estabilización segura con equipo competente.",
+        "Retirar manualmente las cajas sobresalientes."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "La carga inestable implica caída y atrapamiento; se controla el peligro antes de intervenir."
+    },
+    {
+      "caso": "Un vehículo con producto sensible llega 45 minutos antes. La agenda está completa. ¿Qué determina la prioridad?",
+      "opciones": [
+        "Orden estricto de llegada.",
+        "Temperatura, tiempo de exposición, zona controlada, recursos y contingencia.",
+        "Cantidad de cajas únicamente.",
+        "Petición del conductor."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La prioridad considera riesgo de deterioro y capacidad de conservación."
+    },
+    {
+      "caso": "Se observa humedad en el techo del furgón; las cajas visibles están secas, pero contienen papel técnico. ¿Qué actuación procede?",
+      "opciones": [
+        "Aceptar porque las cajas superiores están secas.",
+        "Descargar todo y revisar después.",
+        "Documentar, evaluar alcance y ampliar inspección antes de liberar.",
+        "Aceptar con declaración del conductor."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "La ausencia de daño visible no descarta afectación. Se preserva evidencia y se evalúa."
+    },
+    {
+      "caso": "El precinto coincide con la remisión, pero presenta deformación y marca de herramienta. El conductor dice que fue un golpe. ¿Qué hacer?",
+      "opciones": [
+        "Abrir con él presente y reportar al final.",
+        "Documentar anomalía y solicitar autorización antes de abrir.",
+        "Reemplazarlo por uno interno.",
+        "Aceptar la explicación verbal."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La coincidencia numérica no elimina señales de manipulación."
+    },
+    {
+      "caso": "Un solo montacargas atiende dos muelles; una carga requiere equipo y otra contiene vidrio. ¿Cómo asignar?",
+      "opciones": [
+        "Al vehículo que llegó primero.",
+        "Según compatibilidad, riesgo, equipo y secuencia segura, confirmando medios para la otra operación.",
+        "Usarlo simultáneamente en ambos muelles.",
+        "Descargar vidrio manualmente."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La asignación integra compatibilidad, fragilidad, capacidad y circulación."
+    },
+    {
+      "caso": "Un vehículo huele a químico y transporta envases para alimentos. El proveedor afirma que fue lavado, pero no aporta soporte. ¿Qué hacer?",
+      "opciones": [
+        "Aceptar si los envases están en cajas.",
+        "Ventilar unos minutos.",
+        "Retener y solicitar evaluación de limpieza/compatibilidad con calidad.",
+        "Descargar y decidir después."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "El uso previsto exige controlar contaminación antes de aceptar."
+    },
+    {
+      "caso": "La capacidad teórica es de diez vehículos por turno, pero las inspecciones especiales generan filas y maniobras apresuradas. ¿Qué ajuste conviene?",
+      "opciones": [
+        "Mantener diez y exigir rapidez.",
+        "Recalcular capacidad efectiva con datos reales y holgura.",
+        "Eliminar inspecciones especiales.",
+        "Programar todos a la misma hora."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La capacidad teórica no contempla variabilidad ni tiempos auxiliares."
+    },
+    {
+      "caso": "El auxiliar omite revisar el piso porque la carga está paletizada. ¿Qué riesgo ignora?",
+      "opciones": [
+        "Ninguno, si hay pallets.",
+        "Humedad, contaminación, estabilidad y daños del piso pueden afectar carga y seguridad.",
+        "Solo importa en refrigerados.",
+        "Es responsabilidad exclusiva del conductor."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La inspección debe cubrir superficies relevantes para el producto y la operación."
+    },
+    {
+      "caso": "El área temporal libre comparte espacio con mercancía retenida por contaminación. ¿Qué decisión es adecuada?",
+      "opciones": [
+        "Descargar juntas porque ambas están pendientes.",
+        "Usar pasillo peatonal temporalmente.",
+        "Asignar zona segregada y compatible, sin mezclar estados.",
+        "Ubicar y registrar después."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "La segregación física evita mezcla de estados y riesgos."
+    },
+    {
+      "caso": "El conductor solicita firmar remisión antes de descargar; el formato no diferencia llegada de conformidad. ¿Qué hacer?",
+      "opciones": [
+        "Firmar sin observaciones.",
+        "No registrar la llegada.",
+        "Aplicar el procedimiento de registro y dejar explícito el alcance y las reservas; no certificar conformidad aún no verificada.",
+        "Firmar y corregir luego."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "La firma debe reflejar el evento comprobado y su alcance."
+    },
+    {
+      "caso": "Un peatón cruza la ruta del montacargas; el operador frena y no hay lesión. ¿Qué respuesta es útil?",
+      "opciones": [
+        "No registrar porque no hubo daño.",
+        "Registrar casi accidente y analizar rutas, barreras y controles.",
+        "Sancionar solo al peatón.",
+        "Pedir más uso de bocina sin revisar rutas."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Los casi accidentes permiten prevenir recurrencias mediante controles del sistema."
+    },
+    {
+      "caso": "Al abrir un contenedor se percibe olor irritante desconocido. ¿Qué hacer?",
+      "opciones": [
+        "Ingresar con mascarilla desechable.",
+        "Pedir al conductor que entre primero.",
+        "No ingresar; aislar y escalar para evaluación especializada antes de acceso.",
+        "Ventilar y entrar cuando disminuya."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "Puede existir atmósfera peligrosa; no se ingresa sin evaluación y procedimiento."
+    },
+    {
+      "caso": "Al final del turno quedan pallets descargados sin dictamen de calidad ni ubicación registrada. ¿Qué control aplica?",
+      "opciones": [
+        "Dejarlos en el muelle.",
+        "Moverlos a cualquier espacio libre.",
+        "Identificar, segregar, registrar ubicación/estado y entregar formalmente la novedad al siguiente turno.",
+        "Registrar como conformes para liberar muelle."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "El estado físico y digital, la ubicación y el responsable deben coincidir."
+    }
+  ],
+  "q2": [
+    {
+      "caso": "La OC solicita 18 cajas de 24 unidades. Llegan 17 cerradas y una abierta con 20; remisión declara 432 unidades. ¿Cómo conciliar?",
+      "opciones": [
+        "Registrar 18 cajas.",
+        "Registrar 428 unidades y documentar caja abierta y faltante.",
+        "Aceptar según factura.",
+        "Cambiar el factor de empaque."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "17×24 + 20 = 428; se registra cantidad física real."
+    },
+    {
+      "caso": "La OC solicita válvula V-40 rosca NPT; llega V-40B con conexión BSP. El proveedor dice que presión y dimensiones coinciden. ¿Qué hacer?",
+      "opciones": [
+        "Aceptar por dimensiones.",
+        "Registrar como V-40.",
+        "Separar, comparar especificación completa y solicitar aprobación técnica/comercial.",
+        "Cambiar maestro de artículos."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "La conexión es característica crítica; la equivalencia requiere validación."
+    },
+    {
+      "caso": "El GTIN leído corresponde a caja maestra de 12, pero el auxiliar registra 12 unidades. ¿Qué control evita error?",
+      "opciones": [
+        "Confiar en el lector.",
+        "Validar nivel de empaque asociado al identificador y contrastar con maestro/etiqueta.",
+        "Duplicar cantidad.",
+        "Usar SKU como GTIN."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El código puede identificar distintos niveles de empaque."
+    },
+    {
+      "caso": "La OC pide lote L-120; 15 unidades llegan con lote L-121 y certificado solo de L-120. ¿Qué hacer?",
+      "opciones": [
+        "Registrar un solo lote.",
+        "Separar lotes y mantener L-121 pendiente hasta validar documentación.",
+        "Cambiar etiquetas.",
+        "Aceptar porque el fabricante es igual."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El lote es dato de trazabilidad independiente del SKU."
+    },
+    {
+      "caso": "Factura y remisión declaran 100 unidades; OC autoriza 80. El proveedor envió 20 extra para ahorrar flete. ¿Qué hacer?",
+      "opciones": [
+        "Aceptar 100.",
+        "Ocultar excedente.",
+        "Segregar exceso, registrar cantidad real y solicitar autorización formal.",
+        "Modificar OC desde recepción."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "Documentos del proveedor no autorizan cantidades adicionales."
+    },
+    {
+      "caso": "Etiqueta de pallet indica 40 cajas M-10; una caja de muestra contiene M-11. El proveedor dice que son visualmente iguales. ¿Qué control?",
+      "opciones": [
+        "Aceptar pallet como M-10.",
+        "Ampliar inspección, segregar referencias y reconstruir trazabilidad.",
+        "Cambiar etiqueta exterior.",
+        "Contar solo cajas."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La etiqueta logística no demuestra homogeneidad del contenido."
+    },
+    {
+      "caso": "Ficha recibida es revisión 02; maestro aprobado exige revisión 04. Proveedor dice que no hay cambios físicos. ¿Qué hacer?",
+      "opciones": [
+        "Liberar por código.",
+        "Liberar con confirmación verbal.",
+        "Mantener pendiente, obtener ficha vigente y validar características críticas.",
+        "Cambiar maestro."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "Debe utilizarse la revisión aprobada."
+    },
+    {
+      "caso": "Tambores químicos tienen manchas y sello roto; hoja de seguridad no está en expediente. ¿Qué hacer?",
+      "opciones": [
+        "Descargar y consultar después.",
+        "Aislar, solicitar documentación y aplicar procedimiento antes de manipular/liberar.",
+        "Aceptar los limpios.",
+        "Limpiar manchas."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La información de seguridad debe estar disponible antes de manipular."
+    },
+    {
+      "caso": "OC solicita 2.500 m de cable en 25 rollos nominales de 100 m; uno está abierto sin remanente declarado. ¿Cómo verificar?",
+      "opciones": [
+        "Registrar 2.500 m.",
+        "Asumir 100 m por rollo.",
+        "Medir remanente por método aprobado y registrar longitud real.",
+        "Rechazar todo."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "El factor nominal no acredita contenido de un rollo abierto."
+    },
+    {
+      "caso": "Código de barras ilegible. Auxiliar propone escribir uno parecido hallado en internet. ¿Qué hacer?",
+      "opciones": [
+        "Usarlo y corregir después.",
+        "Captura manual autorizada, verificación física y documental, y registro de excepción.",
+        "Crear SKU nuevo.",
+        "Omitir la caja."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Nunca se inventan identificadores."
+    },
+    {
+      "caso": "Cuatro cajas aplastadas de un lote de 100; política exige inspección ampliada. ¿Qué documentar?",
+      "opciones": [
+        "Solo cuatro cajas.",
+        "Total recibido, alcance inspeccionado, afectadas, tipo de daño, lote, evidencia y decisión.",
+        "Solo valor comercial.",
+        "Conformidad si una caja está intacta."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La evidencia debe mostrar alcance y criterio de inspección."
+    },
+    {
+      "caso": "Documento de transporte muestra vehículo distinto al de portería; proveedor dice que hubo transbordo sin soporte. ¿Qué hacer?",
+      "opciones": [
+        "Aceptar por coincidencia de OC.",
+        "Actualizar verbalmente.",
+        "Registrar inconsistencia y verificar autorización del cambio antes de continuar.",
+        "Borrar datos iniciales."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "El cambio de vehículo debe ser trazable y autorizado."
+    },
+    {
+      "caso": "OC compra 10 cajas de 6; maestro indica 8 por caja. Llegan 10 de 8. ¿Qué hacer?",
+      "opciones": [
+        "Registrar 80 porque maestro prevalece.",
+        "Resolver discrepancia entre OC y maestro con fuente autorizada antes de aceptar.",
+        "Cambiar OC desde recepción.",
+        "Registrar 60."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "No se elige unilateralmente el factor de conversión."
+    },
+    {
+      "caso": "Certificado identifica fabricante y producto, pero no lote; política exige trazabilidad por lote. ¿Qué procede?",
+      "opciones": [
+        "Aceptar por fabricante.",
+        "Asignar al lote más cercano.",
+        "Solicitar evidencia que vincule certificado al lote y retener hasta cumplir requisito.",
+        "Anotar lote en observaciones."
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "El certificado debe cubrir la partida recibida."
+    },
+    {
+      "caso": "Caja electrónica perforada; proveedor propone reempacar antes de fotografiar. ¿Qué hacer?",
+      "opciones": [
+        "Permitir reempaque.",
+        "Documentar estado original, identificar lote, segregar y evaluar antes de intervenir.",
+        "Rechazar todo lote automáticamente.",
+        "Cambiar etiqueta."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La condición original es evidencia y debe preservarse."
+    }
+  ],
+  "q3": [
+    {
+      "caso": "OC solicita 12 cajas de 20; llegan 11 cerradas y una abierta con 16 unidades. ¿Cantidad física?",
+      "opciones": [
+        "240",
+        "236, documentando caja abierta y faltante",
+        "11",
+        "12 cajas completas"
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "11×20 + 16 = 236 unidades."
+    },
+    {
+      "caso": "Bruto 42,6 kg; tara verificada 2,1 kg; especificación 40 kg netos. ¿Conclusión?",
+      "opciones": [
+        "Neto 40,5 kg; evaluar diferencia de 0,5 kg frente a tolerancia y método.",
+        "Neto 42,6.",
+        "Neto 44,7.",
+        "Conforme sin revisar."
+      ],
+      "respuesta": 0,
+      "retroalimentacion": "Neto = bruto − tara = 40,5 kg."
+    },
+    {
+      "caso": "Se esperan 75 unidades P y 40 Q; llegan 72 P y 43 Q. Total coincide. ¿Cómo registrar?",
+      "opciones": [
+        "Conforme.",
+        "Faltante 3 P y sobrante 3 Q por separado.",
+        "Diferencia cero.",
+        "Distribuir proporcionalmente."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Las diferencias se controlan por SKU."
+    },
+    {
+      "caso": "Carga pesa 612 kg y equipo tiene capacidad 600 kg. Supervisor propone retirar una caja sin volver a pesar. ¿Qué hacer?",
+      "opciones": [
+        "Retirar y asumir.",
+        "No mover con ese equipo hasta verificar peso y capacidad efectiva o usar equipo adecuado.",
+        "Elevar lentamente.",
+        "Estimar por caja."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "No se toman decisiones de capacidad con estimaciones."
+    },
+    {
+      "caso": "Una terminal pierde conexión tras 30 escaneos; auxiliar repite y WMS registra 60. ¿Qué control aplica?",
+      "opciones": [
+        "Borrar 30 sin evidencia.",
+        "Conciliar transacciones y conteo físico; reversión autorizada y control de reintentos/idempotencia.",
+        "Mantener 60.",
+        "Ajustar físico."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La corrección debe ser auditable y prevenir duplicados."
+    },
+    {
+      "caso": "Dos lotes de un SKU deben registrarse, pero sistema permite varios lotes. ¿Cómo proceder?",
+      "opciones": [
+        "Un lote general.",
+        "Registrar cada lote con cantidad asociada y relación con pallet/ubicación.",
+        "Crear lote nuevo agrupado.",
+        "Escribirlos en texto libre."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Cada lote conserva relación inequívoca con cantidad."
+    },
+    {
+      "caso": "Documento declara 500 kg incluyendo pallet; recepción registra 500 kg netos. ¿Qué error existe?",
+      "opciones": [
+        "Ninguno.",
+        "Se comparan magnitudes con bases distintas; aclarar componentes incluidos.",
+        "Bruto siempre igual a neto.",
+        "Restar producto al pallet."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Las bases de medición deben ser equivalentes."
+    },
+    {
+      "caso": "Caja abierta contiene piezas variables; se propone estimar por peso. ¿Cuándo es válido?",
+      "opciones": [
+        "Siempre con báscula digital.",
+        "Solo con método validado, peso unitario representativo, tolerancia y equipo adecuado.",
+        "Siempre que el total pese lo esperado.",
+        "Nunca."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El conteo por peso exige validación."
+    },
+    {
+      "caso": "WMS muestra ocho posiciones libres; físicamente quedan cinco por mercancía retenida no actualizada. ¿Qué hacer?",
+      "opciones": [
+        "Usar pasillos.",
+        "Conciliar ocupación física/digital y bloquear capacidad no disponible.",
+        "Borrar ubicaciones.",
+        "Apilar sin verificar."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La capacidad debe reflejar la realidad física."
+    },
+    {
+      "caso": "Una caja presenta diferencia de peso y tara distinta a estándar. ¿Qué comprobar?",
+      "opciones": [
+        "Color de caja.",
+        "Tara real, método, cero y si la especificación es neta o bruta.",
+        "Factura únicamente.",
+        "Cantidad de cajas."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La diferencia puede ser efecto de tara o base de comparación."
+    },
+    {
+      "caso": "Etiqueta de pallet indica 36 cajas, pero contiene 34; WMS asignó 36. ¿Qué secuencia?",
+      "opciones": [
+        "Mantener 36.",
+        "Registrar real, corregir transacción autorizada y actualizar ubicación/estado con trazabilidad.",
+        "Crear etiqueta con 36.",
+        "Completar con otro pallet."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El dato físico se concilia mediante transacción auditable."
+    },
+    {
+      "caso": "Llegan cinco recipientes nominales de 20 L; uno está parcialmente lleno sin indicador confiable. ¿Qué hacer?",
+      "opciones": [
+        "Registrar 100 L.",
+        "Medir contenido por método autorizado y registrar volumen real.",
+        "Estimar visualmente.",
+        "Pesar sin densidad."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Capacidad nominal no equivale al contenido real."
+    },
+    {
+      "caso": "Serial de unidad ya existe en sistema. Proveedor dice que es error de digitación. ¿Qué hacer?",
+      "opciones": [
+        "Cambiar un dígito.",
+        "Retener, comparar etiqueta/documentos e historial y escalar sin alterar serial.",
+        "Aceptar por SKU.",
+        "Eliminar serial previo."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La duplicidad puede comprometer trazabilidad."
+    },
+    {
+      "caso": "Hay 100 unidades: 5 dañadas y 95 conformes; sistema solo permite decisión global. ¿Qué hacer?",
+      "opciones": [
+        "Liberar todo con observación.",
+        "Segregar y utilizar flujo autorizado de aceptación parcial/división de líneas.",
+        "Rechazar todas automáticamente.",
+        "Modificar base de datos."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Los estados distintos deben representarse sin alterar el sistema directamente."
+    },
+    {
+      "caso": "Al cierre hay faltante, lote inconsistente y duplicidad. ¿Qué debe recibir el siguiente turno?",
+      "opciones": [
+        "Mensaje verbal.",
+        "Pedido, SKU/lote, cantidades, estado físico/digital, ubicación, evidencia, responsable y siguiente acción.",
+        "Solo proveedor.",
+        "Nota del auxiliar."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El relevo requiere información verificable y continuidad."
+    }
+  ],
+  "final": [
+    {
+      "caso": "Una entrega de alto valor llega con precinto cuyo último dígito difiere, humedad en techo y zona temporal limitada. El proveedor pide descargar primero los pallets secos. ¿Plan inicial?",
+      "opciones": [
+        "Abrir y descargar primero.",
+        "Detener apertura, documentar sello, evaluar humedad, confirmar capacidad y autorización antes de continuar.",
+        "Aceptar explicación verbal.",
+        "Rechazar sin inspección."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El sello, la condición del vehículo y la capacidad son controles previos independientes."
+    },
+    {
+      "caso": "La OC solicita 6 pallets, 40 cajas por pallet y 8 unidades por caja. Se reciben cinco pallets completos y uno con 38 cajas; una caja abierta contiene 6 unidades. ¿Cantidad?",
+      "opciones": [
+        "1.920",
+        "1.926",
+        "1.902",
+        "1.914"
+      ],
+      "respuesta": 2,
+      "retroalimentacion": "5×40×8 + 37×8 + 6 = 1.902 unidades."
+    },
+    {
+      "caso": "Se solicitan 100 unidades A y 100 B; llegan 96 A y 104 B. El total coincide. ¿Tratamiento?",
+      "opciones": [
+        "Aceptar 200.",
+        "Faltante A y sobrante B por separado.",
+        "Redistribuir SKU.",
+        "Ajustar maestro."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "No se compensan diferencias entre referencias."
+    },
+    {
+      "caso": "Bruto 820 kg; tara 35 kg; declarado neto 790 kg; tolerancia ±2 kg. ¿Conclusión?",
+      "opciones": [
+        "Neto 785 kg; diferencia 5 kg supera tolerancia.",
+        "Neto 820.",
+        "Neto 855.",
+        "Conforme."
+      ],
+      "respuesta": 0,
+      "retroalimentacion": "820−35=785; diferencia absoluta 5 kg."
+    },
+    {
+      "caso": "Tras pérdida de conexión se duplican 48 cajas en WMS; físicamente hay 48. ¿Qué hacer?",
+      "opciones": [
+        "Borrar registros.",
+        "Bloquear liberación, conciliar transacciones y revertir con auditoría.",
+        "Dejar 96.",
+        "Crear salida sin vínculo."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La corrección debe ser trazable."
+    },
+    {
+      "caso": "Llega un modelo con sufijo distinto; dimensiones coinciden, pero aplicación tiene requisito específico de sellado. ¿Qué exigir?",
+      "opciones": [
+        "Declaración verbal.",
+        "Comparación técnica y aprobación del responsable de aplicación.",
+        "Precio igual.",
+        "Código legible."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La equivalencia depende de características funcionales."
+    },
+    {
+      "caso": "Se detecta olor químico y manchas en vehículo que transporta envases alimentarios. ¿Qué hacer?",
+      "opciones": [
+        "Ventilar diez minutos.",
+        "Retener, documentar y evaluar limpieza/contaminación con calidad.",
+        "Descargar cajas superiores.",
+        "Aceptar con descuento."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La condición exige evaluación antes de liberar."
+    },
+    {
+      "caso": "OC solicita 12 cajas de 25; llegan 11 cerradas y una abierta con 19 unidades. ¿Cantidad?",
+      "opciones": [
+        "300",
+        "294",
+        "275",
+        "299"
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "11×25+19=294 unidades."
+    },
+    {
+      "caso": "Certificado no identifica lote y producción pide liberar de inmediato. ¿Qué decisión?",
+      "opciones": [
+        "Liberar 10.",
+        "Retener hasta obtener vínculo documental o excepción autorizada.",
+        "Asignar certificado al lote más antiguo.",
+        "Anotar y liberar."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La urgencia no sustituye trazabilidad."
+    },
+    {
+      "caso": "Dos muelles, un montacargas, espacio para 10 pallets y tres vehículos con distintas criticidades. ¿Cómo secuenciar?",
+      "opciones": [
+        "Orden de llegada.",
+        "Evaluar conservación, criticidad, documentación, equipo y capacidad; secuenciar con controles.",
+        "Vehículo más grande.",
+        "Mayor valor."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La prioridad integra riesgos y restricciones."
+    },
+    {
+      "caso": "Etiqueta de pallet correcta pero una caja contiene otro SKU; alcance desconocido. ¿Qué hacer?",
+      "opciones": [
+        "Cambiar etiqueta.",
+        "Aislar y ampliar inspección para determinar alcance, segregar y documentar.",
+        "Aceptar resto sin revisar.",
+        "Un SKU en comentarios."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Se debe establecer alcance antes de liberar."
+    },
+    {
+      "caso": "Cinco cajas aplastadas de lote de 80 requieren inspección ampliada. ¿Qué evidencia?",
+      "opciones": [
+        "Foto general.",
+        "SKU/lote, pedido, alcance, afectadas, fotos, criterio y dictamen.",
+        "Firma conductor.",
+        "Factura."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La evidencia debe ser atribuible y permitir decidir."
+    },
+    {
+      "caso": "El WMS muestra 520; conteo actual 500 y se sospecha duplicidad anterior. ¿Qué hacer?",
+      "opciones": [
+        "Aceptar 520.",
+        "Mantener 500 y resolver error histórico por transacción autorizada separada.",
+        "Borrar historial.",
+        "Promediar."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "No se traslada error previo a la recepción actual."
+    },
+    {
+      "caso": "Mercancía descargada, pero lote y calidad pendientes; sistema la muestra disponible. ¿Control?",
+      "opciones": [
+        "Permitir retiro.",
+        "Mantener retención física y digital hasta dictamen autorizado.",
+        "Entregar parte.",
+        "Cambiar a conforme."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Descargue no equivale a disponibilidad."
+    },
+    {
+      "caso": "Conductor solicita firma sin reservas; conteo 148 vs 150 y dos cajas húmedas. ¿Cómo documentar?",
+      "opciones": [
+        "Firmar sin reservas.",
+        "Registrar con reservas, cantidades y condición observada; conservar evidencia.",
+        "No registrar llegada.",
+        "Modificar remisión."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La firma debe reflejar lo comprobado."
+    },
+    {
+      "caso": "Al cierre hay faltante, lote distinto y daño. ¿Qué transferir?",
+      "opciones": [
+        "Chat verbal.",
+        "Identificación, cantidades, estados, ubicación, evidencia, responsable y siguiente acción.",
+        "Nombre proveedor.",
+        "Lista sin pedido."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La continuidad requiere trazabilidad completa."
+    },
+    {
+      "caso": "Montacargas nominal 1.500 kg; carga 1.420 kg y accesorio reduce capacidad residual. ¿Qué comprobar?",
+      "opciones": [
+        "Peso bajo 1.500.",
+        "Capacidad efectiva según centro de carga y accesorio.",
+        "Pallet cuatro entradas.",
+        "Experiencia."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La capacidad nominal no aplica necesariamente a toda configuración."
+    },
+    {
+      "caso": "Báscula sobre piso irregular da lecturas variables; se promedian. ¿Suficiente?",
+      "opciones": [
+        "Sí, promedio elimina error.",
+        "No; corregir instalación y verificar equipo antes de usar lecturas.",
+        "Sí si cercanas.",
+        "Nunca pesar pallets."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El promedio no corrige una condición de medición inadecuada."
+    },
+    {
+      "caso": "Diez pallets contienen lotes distintos y una sola línea SKU. ¿Registro?",
+      "opciones": [
+        "Un lote global.",
+        "Cada lote con cantidad y relación a pallet/ubicación.",
+        "Primer lote.",
+        "Omitir lotes."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La trazabilidad debe mantenerse por lote."
+    },
+    {
+      "caso": "Proveedor promete reponer faltante en próxima ruta sin fecha. ¿Cuándo cerrar?",
+      "opciones": [
+        "Con promesa.",
+        "Cuando se recibe/verifica reposición o existe disposición formal autorizada.",
+        "Al enviar correo.",
+        "Con firma conductor."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El cierre requiere evidencia de resolución."
+    },
+    {
+      "caso": "Lote aún vigente, pero con vida útil remanente menor a la pactada. ¿Qué hacer?",
+      "opciones": [
+        "Aceptar por no estar vencido.",
+        "Comparar requisito de vida útil, retener y solicitar decisión.",
+        "Cambiar fecha.",
+        "Mezclar lotes."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La conformidad puede depender de vida útil remanente."
+    },
+    {
+      "caso": "Sello reemplazado antes de llegada; proveedor envía correo después. ¿Qué analizar?",
+      "opciones": [
+        "Aceptar correo.",
+        "Autenticidad, momento, autorización, números y cadena de custodia; escalar.",
+        "Registrar solo nuevo.",
+        "Descartar evidencia."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Debe reconstruirse la secuencia y legitimidad de la excepción."
+    },
+    {
+      "caso": "ERP usa cajas y WMS unidades. ¿Control?",
+      "opciones": [
+        "Comparar números.",
+        "Unidad base, factor maestro y sistema fuente definidos.",
+        "Cambiar manualmente.",
+        "Ignorar."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La conversión debe ser consistente y autorizada."
+    },
+    {
+      "caso": "Una unidad tiene serial duplicado y otras 49 coinciden. ¿Tratamiento?",
+      "opciones": [
+        "Rechazar 50.",
+        "Segregar unidad afectada y mantener trazabilidad; decidir alcance según procedimiento.",
+        "Cambiar serial.",
+        "Aceptar todo."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La respuesta debe ser proporcional y preservar el serial original."
+    },
+    {
+      "caso": "Mejora tiempo 20 %, pero aumentan errores e incidentes. ¿Conclusión?",
+      "opciones": [
+        "Mejora positiva.",
+        "Evaluar productividad junto con calidad y seguridad; investigar causas.",
+        "Eliminar controles.",
+        "Tiempo único."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La eficiencia sostenible no sacrifica exactitud ni seguridad."
+    },
+    {
+      "caso": "Informe dice 'llegó mal' con fotos sin identificación. ¿Qué falta?",
+      "opciones": [
+        "Nada.",
+        "Proveedor, OC, vehículo, SKU/lote, cantidad, fecha, hallazgo y responsables.",
+        "Valor factura.",
+        "Cambiar palabra."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La evidencia debe poder vincularse al evento."
+    },
+    {
+      "caso": "Ubicación mezcla mercancía retenida y conforme; WMS muestra ubicación común. ¿Acción?",
+      "opciones": [
+        "Mantener y confiar en colores.",
+        "Segregar física y digitalmente, revisar movimientos y prevenir mezcla.",
+        "Liberar todo.",
+        "Renombrar."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "La segregación debe ser física y lógica."
+    },
+    {
+      "caso": "Auxiliar recibe propuesta de sustitución técnica y comprador está ausente. ¿Límite?",
+      "opciones": [
+        "Aprobar si parece igual.",
+        "Registrar y escalar; aprobación corresponde a autoridad designada.",
+        "Aprobar mismo precio.",
+        "Aceptar y auditar."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Recepción no asume autoridad técnica/comercial no asignada."
+    },
+    {
+      "caso": "Sello y documentos conformes, pero acceso a carga requiere subir sobre pallets para soltar correa. ¿Qué prevalece?",
+      "opciones": [
+        "Rapidez.",
+        "Detener y establecer método seguro de acceso y liberación.",
+        "Conductor sostiene escalera.",
+        "Casco basta."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "Conformidad documental no elimina riesgo de caída."
+    },
+    {
+      "caso": "Recepción tiene 98 conformes, una retenida y una no identificada. ¿Cierre?",
+      "opciones": [
+        "Registrar 100 conformes.",
+        "Registrar estados/cantidades separados y cerrar solo lo resuelto.",
+        "No registrar nada.",
+        "Eliminar dos unidades."
+      ],
+      "respuesta": 1,
+      "retroalimentacion": "El registro debe reflejar estados reales y pendientes."
+    }
+  ]
+}

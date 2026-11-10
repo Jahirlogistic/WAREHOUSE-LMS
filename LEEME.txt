@@ -1,0 +1,26 @@
+WAREHOUSE LMS — Versión 2 mejorada
+
+Novedades:
+- Contenido ampliado con procedimientos, controles, criterios y trazabilidad.
+- Preguntas situacionales de mejor respuesta: todas las alternativas son plausibles y requieren criterio operativo.
+- Tres quizzes independientes, cada uno habilitado al completar su unidad y la etapa previa.
+- Examen final integrador habilitado después de completar las tres unidades y sus quizzes.
+- Escala de notas de 0,0 a 5,0 y penalizaciones configurables por salida de pestaña.
+
+Uso: descomprime el ZIP y abre index.html en un navegador moderno.
+
+Nota: demostración local de un solo navegador. Para uso institucional multiusuario se requiere autenticación real, backend y base de datos centralizada. La detección de cambios de pestaña tiene limitaciones técnicas.
+
+
+INTEGRACION DE EVALUACIONES (actualizacion)
+- Banco incorporado en index.html: 15 preguntas por quiz de unidad y 30 para examen final.
+- Las opciones se mezclan en cada intento y la evaluación conserva la clave correcta.
+- Se muestra retroalimentación técnica al terminar cada evaluación.
+- Se solicita el nombre del estudiante al iniciar el examen final.
+- Solo el examen final envía una fila al receptor de Google Sheets.
+- Unidad enviada: WAREHOUSE LMS.
+- Se conservan los nueve encabezados existentes; no se envían notas parciales.
+- Penalización predeterminada: 0,50 por incidencia en quizzes y 0,75 en examen final.
+- El navegador usa POST no-cors a la URL de Apps Script configurada. En modo no-cors el navegador no permite leer la respuesta del servidor; por eso el LMS no puede confirmar visualmente que Google Sheets guardó la fila. La publicación y permisos del receptor deben mantenerse activos.
+- La prueba de envío real no se ejecutó para no insertar un registro ficticio en la hoja de calificaciones.
+- Para GitHub Pages, el endpoint queda visible en el código del cliente. El receptor debe validar los campos y restringir el uso según la política del proyecto; no incluir credenciales privadas en GitHub.
